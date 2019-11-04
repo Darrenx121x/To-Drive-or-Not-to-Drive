@@ -1,0 +1,118 @@
+<!-- Weather Page -->
+<!DOCTYPE html>
+<html>
+<!-- Head -->
+<head>
+<title>Pittsburgh</title>
+<!-- For-Mobile-Apps -->
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="New York Weather Widget Responsive, Login Form Web Template, Flat Pricing Tables, Flat Drop-Downs, Sign-Up Web Templates, Flat Web Templates, Login Sign-up Responsive Web Template, Smartphone Compatible Web Template, Free Web Designs for Nokia, Samsung, LG, Sony Ericsson, Motorola Web Design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- //For-Mobile-Apps -->
+<!-- Style --> <link rel="stylesheet" href="css/style.css" type="text/css" media="all" />
+<!-- Web-Fonts -->
+<!-- <link href='//fonts.googleapis.com/css?family=Oxygen:400,300,700' rel='stylesheet' type='text/css'> -->
+<!-- <link href='//fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'> -->
+<!-- <link href='//fonts.googleapis.com/css?family=Raleway:100,200' rel='stylesheet' type='text/css'> -->
+<!-- //Web-Fonts -->
+</head>
+<!-- Head -->
+<!-- Body -->
+<body onload="startTime()">
+	<!-- Heading -->
+	<h1>Drivability</h1>
+	<!-- //Headng -->
+		<!-- Container -->
+		<div class="container">
+			<!-- City -->
+			<div class="city">
+				<div class="title">
+					<h2 id="city-name">Pittsburgh</h2>
+					<h3>United States</h3>
+					<h3 id=recommendation> </h3>
+				</div>
+				<div class="date-time">
+					<div class="dmy">
+						<div id="txt"></div>
+						<div class="date">
+							<!-- Date-JavaScript -->
+							<script type="text/javascript">
+							var mydate=new Date()
+							var year=mydate.getYear()
+							if(year<1000)
+							year+=1900
+							var day=mydate.getDay()
+							var month=mydate.getMonth()
+							var daym=mydate.getDate()
+							if(daym<10)
+							daym="0"+daym
+							var dayarray=new Array("Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday")
+							var montharray=new Array("January","February","March","April","May","June","July","August","September","October","November","December")
+							document.write(""+dayarray[day]+", "+montharray[month]+" "+daym+", "+year+"")
+							</script>
+							<!-- //Date-JavaScript -->
+						</div>
+					</div>
+					<div class="temperature"> 	
+						<h1 id=temperature_1></h1>
+					</div>
+
+					<div class="clear"></div>
+				</div>
+			</div>
+			<!-- //City -->
+			<!-- Forecast -->
+			<div class="forecast">
+				<div class="forecast-icon">
+					<img id="weather_icon" width="150">
+				</div>
+				<div class="today-weather">
+					<br>
+					<ul>
+					<li></li><h3 id="weather_type">Cloudy</h3></ul>
+					</ul>
+				</div>
+				<h2 style="color: white;">Drivability Score</h2>
+				<br>
+					<h1 id=drivability_score>  </h1>
+			</div>
+			<!-- //Forecast -->
+			<div class="clear"></div>
+		</div>
+		<!-- //Container -->
+	<!-- Custom-JavaScript-Files -->
+		<!-- Time-JavaScript -->
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"> </script>
+		<script>
+			function startTime() {
+				var today = new Date();
+				var h = today.getHours();
+				var m = today.getMinutes();
+				var s = today.getSeconds();
+				m = checkTime(m);
+				s = checkTime(s);
+				document.getElementById('txt').innerHTML =
+				h + ":" + m + ":" + s;
+				var t = setTimeout(startTime, 500);
+				}
+				function checkTime(i) {
+				if (i < 10) {i = "0" + i}; // add zero in front of numbers < 10
+				return i;
+			}
+			var urlParams = new URLSearchParams(window.location.search);
+			$.get("https://cors-anywhere.herokuapp.com/35.227.46.103/weather?q="+urlParams.get("q")).done(function(data){
+				$("#city-name").text(data["name"]);
+				$("#weather_type").text(data["weather_type"]);
+				$("#temperature_1").html(data["temprature"] + "<span>°C</span>");
+				$("#recommendation").text(data["recommendation"]);
+				$("#drivability_score").text(data["drivability_score"]);
+				$("#weather_icon").attr("src", data["icon_url"]);
+				console.log(data);
+			});
+		</script>
+		<!-- //Time-JavaScript -->
+	<!-- //Custom-JavaScript-File-Links -->
+</body>
+<!-- //Body -->
+</html>

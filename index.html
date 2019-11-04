@@ -1,0 +1,52 @@
+<!--Main Page-->
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Inclimate Weather</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+		
+		<link href="css/jquery.selectbox.css" type="text/css" rel="stylesheet" />	</head>
+	
+	<body>
+		
+		<section class="download bg-primary text-center" id="download">
+			<div class="container">
+				<div class="row">
+					<h2 class="section-heading"> See how the Drivability is in a City</h2>
+				</div>
+			</div>
+		 <!-- <p><a href="index1.html">London</a></p> -->
+		<select name="country_id" id="country_id" tabindex="1" onchange="location = this.value;" sb="58534994" style="display: none;">
+				<option value="1">Select a City</option>
+				<option value="index1.html?q=Pittsburgh, U.S.A.">Pittsburgh, U.S.A.</option>
+				<option value="index1.html?q=New York, U.S.A.">New York, U.S.A.</option>
+				<option value="index1.html?q=Barcelona, E.S.">Barcelona, E.S.</option>
+				<option value="index1.html?q=Dublin. I.E.">Dublin. I.E.</option>
+				<option value="index1.html?q=Oslo, N.O.">Oslo, N.O.</option>
+				<option value="index1.html?q=Riyadh, S.A.">Riyadh, S.A.</option>
+				<option value="index1.html?q=Amsterdam, N.L.">Amsterdam, N.L.</option>
+				<option value="index1.html?q=Warsaw, P.L.">Warsaw, P.L.</option>
+				<option value="index1.html?q=Moscow, R.U.">Moscow, R.U.</option>
+				<option value="index1.html?q=Reykjavík, I.S.">Reykjavík, I.S.</option>
+				<option value="index1.html?q=Rome, I.T.">Rome, I.T.</option>
+				<option value="index1.html?q=Jakarta, I.D.">Jakarta, I.D.</option>
+				<option value="index1.html?q=New Delhi, I.N.">New Delhi, I.N.</option>
+				<option value="index1.html?q=Los Angeles, U.S.A.">Los Angeles, U.S.A.</option>
+				<option value="index1.html?q=Austin, U.S.A.">Austin, U.S.A.</option>
+				<option value="index1.html?q=Harrisburg, U.S.A.">Harrisburg, U.S.A.</option>
+				<option value="index1.html?q=Boston, U.S.A.">Boston, U.S.A.</option>
+				<option value="index1.html?q=Orlando, U.S.A">Orlando, U.S.A</option>
+				<option value="index1.html?q=Paris, F.R.">Paris, F.R.</option>
+				<option value="index1.html?q=Monte Carlo, M.C.">Monte Carlo, M.C.</option>
+		</select>
+		<script type="text/javascript" src="js/jquery-1.7.2.min.js"> </script>
+		<script type="text/javascript" src="js/jquery.selectbox-0.2.js"></script>
+			<script type="text/javascript">
+				$(function () {
+				$("#country_id").selectbox();
+				});
+			</script> 
+		     
+	
+
+</section></body></html>
